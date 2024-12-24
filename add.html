@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .product-info img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-details {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .product-details h2 {
+            margin: 0;
+            color: #444;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group input[type="number"] {
+            width: 60px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Shopping Cart</h1>
+
+    <div class="product-info">
+        <img src="data:image/jpeg;base64,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" alt="Product Image">
+        <div class="product-details">
+            <h2>Daydreamer's Bookshop</h2>
+            <p>Feel the dream turn into a reality!!!!</p>
+        </div>
+    </div>
+
+    <form id="cartForm">
+        <div class="form-group">
+            <label for="size">Select Size:</label>
+            <select id="size" name="size" required>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Select Color:</label>
+            <select id="color" name="color" required>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('cartForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Gather form data
+        const size = document.getElementById('size').value;
+        const color = document.getElementById('color').value;
+        const quantity = document.getElementById('quantity').value;
+
+        // Simple alert for confirmation
+        alert(`Item added to cart!\nSize: ${size}\nColor: ${color}\nQuantity: ${quantity}`);
+    });
+</script>
+
+</body>
+</html>
